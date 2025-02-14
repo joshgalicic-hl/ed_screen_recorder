@@ -35,7 +35,6 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /**
  * EdScreenRecorderPlugin
@@ -78,12 +77,6 @@ public class EdScreenRecorderPlugin implements FlutterPlugin, ActivityAware, Met
         pauseRecordingResult = null;
         resumeRecordingResult = null;
         recentResult = null;
-    }
-
-    public static void registerWith(Registrar registrar) {
-        final EdScreenRecorderPlugin instance = new EdScreenRecorderPlugin();
-        instance.setupChannels(registrar.messenger(), registrar.activity());
-        registrar.addActivityResultListener(instance);
     }
 
     @Override
